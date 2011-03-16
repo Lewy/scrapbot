@@ -1,8 +1,7 @@
-require 'rubygems'
 require 'scrapbot/downloader'
 require 'typhoeus'
-require 'grit'
+
 
 module Scrapbot
-  include Downloader
+  PATH = '/home/lewy/programowanie/projekty/downloads'
 end
