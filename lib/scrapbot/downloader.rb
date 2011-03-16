@@ -1,3 +1,4 @@
+require_relative 'storage'
 
 module Scrapbot
 #  This class is responsible for downloading page
@@ -12,7 +13,7 @@ module Scrapbot
       s = Storage.new
 
       urls_list do |response|
-        s.magazine << response.code
+        s.magazine << response
       end
       
       s.save_all

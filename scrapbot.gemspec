@@ -15,6 +15,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "grit"
   s.add_development_dependency "typhoeus"
 
+  s.executables = ["scrapbot"]
+
   s.rubyforge_project = "scrapbot"
 
   s.files         = `git ls-files`.split("\n")

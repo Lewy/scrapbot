@@ -19,7 +19,7 @@ module Scrapbot
 
     private
 
-      def save_path(response)
+      def save_path
         File.join(PATH,"index.html")
       end
 
