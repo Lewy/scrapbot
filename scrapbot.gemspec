@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "grit"
   s.add_development_dependency "typhoeus", ">=0.2"
-  s.add_development_dependency "settingslogic", ">=2.0"
+  s.add_development_dependency "configliere", ">=0.3"
 
   s.executables = ["scrapbot"]
 

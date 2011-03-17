@@ -21,7 +21,7 @@ module Scrapbot
     private
 
     def save_path
-      File.join(PATH,"index.html")
+      File.join(Settings[:path_to_git],"index.html")
     end
 
   end

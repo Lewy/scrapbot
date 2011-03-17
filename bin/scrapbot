@@ -3,37 +3,45 @@
 require File.expand_path('../../lib/scrapbot', __FILE__)
 require 'thor'
 require 'settingslogic'
+require 'configliere'
+
+
 
 module Scrapbot
+  Settings.use :commandline, :config_file
+
+
   class Init < Thor
 
-    attr_accessor :settings
-
-    def initialize(*args)
-      super
-      self.settings = Settings
-    end
+    attr_accessor :urls
 
     desc "server", "start watching urls"
 
     #    Url file
     method_options :url_file => :string, :required => true
+    method_options :conf_file => :string, :required => true
 
     def watch
-      s = Scrapbot::Downloader.new([options[:url_file]])
+
+      load_settings(File.join(Dir.getwd,"/#{options[:conf_file]}"))
+      load_urls(File.join(Dir.getwd,"/#{options[:url_file]}"))
+
+      s = Scrapbot::Downloader.new(self.urls)
       s.start
     end
-  end
 
-  class Settings < Settingslogic
-    attr_accessor :path_to_f
+    private
 
-    def initialize(*args,path)
-      self.path_to_f = path
-      super
+    def load_settings(path)
+      Settings.read path
+      Settings.resolve!
     end
 
-    source self.path_to_f
+    def load_urls(path)
+      #read and parse by line txt file
+      self.urls = File.open(path).readlines.map(&:strip).reject(&:empty?)
+    end
+
   end
 
 end
