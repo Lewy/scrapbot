@@ -1,0 +1,15 @@
+= Scrapbot
+
+== Introduction
+
+    Bot which can watch give urls and copy them on your computer if detect any changes
+
+== Instalation
+
+    gem install scrapbot
+
+== Usage
+
+    I put example configuration file in example folder
+
+    scrapbot watch --url_file=urls.txt --conf_file=conf.yml
