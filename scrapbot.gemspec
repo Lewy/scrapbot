@@ -13,7 +13,8 @@ Gem::Specification.new do |s|
   s.description = %q{Bot for archive pages}
 
   s.add_development_dependency "grit"
-  s.add_development_dependency "typhoeus"
+  s.add_development_dependency "typhoeus", ">=0.2"
+  s.add_development_dependency "settingslogic", ">=2.0"
 
   s.executables = ["scrapbot"]
 

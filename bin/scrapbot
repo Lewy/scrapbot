@@ -1,4 +1,44 @@
-require File.expand_path('../../lib/scrapbot', __FILE__)
+#!/usr/bin/env ruby
 
-s = Scrapbot::Downloader.new(['http://www.wp.pl'])
-s.start
+require File.expand_path('../../lib/scrapbot', __FILE__)
+require 'thor'
+require 'settingslogic'
+
+module Scrapbot
+  class Init < Thor
+
+    attr_accessor :settings
+
+    def initialize(*args)
+      super
+      self.settings = Settings
+    end
+
+    desc "server", "start watching urls"
+
+    #    Url file
+    method_options :url_file => :string, :required => true
+
+    def watch
+      s = Scrapbot::Downloader.new([options[:url_file]])
+      s.start
+    end
+  end
+
+  class Settings < Settingslogic
+    attr_accessor :path_to_f
+
+    def initialize(*args,path)
+      self.path_to_f = path
+      super
+    end
+
+    source self.path_to_f
+  end
+
+end
+
+Scrapbot::Init.start
+
+# scrapbot watch --url_file="www.wp.pl"
+

@@ -7,6 +7,7 @@ module Scrapbot
 
     def initialize
       self.magazine = []
+
     end
 
     def save_all
@@ -19,9 +20,9 @@ module Scrapbot
 
     private
 
-      def save_path
-        File.join(PATH,"index.html")
-      end
+    def save_path
+      File.join(PATH,"index.html")
+    end
 
   end
 end
