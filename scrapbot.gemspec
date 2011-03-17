@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.summary     = %q{Scrapping Bot}
   s.description = %q{Bot for archive pages}
 
-  s.add_development_dependency "grit"
   s.add_development_dependency "typhoeus", ">=0.2"
   s.add_development_dependency "configliere", ">=0.3"
 

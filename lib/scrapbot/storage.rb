@@ -1,5 +1,5 @@
-require 'grit'
 require 'uri'
+require 'git'
 
 module Scrapbot
   class Storage
@@ -17,6 +17,8 @@ module Scrapbot
           f.write(response.body)
         end
       end
+      g = Git.new
+      g.init
     end
 
     private
