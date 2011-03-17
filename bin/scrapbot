@@ -1,10 +1,9 @@
 #!/usr/bin/env ruby
 
 require File.expand_path('../../lib/scrapbot', __FILE__)
-require 'thor'
-require 'settingslogic'
-require 'configliere'
 
+require 'thor'
+require 'configliere'
 
 
 module Scrapbot
@@ -17,8 +16,9 @@ module Scrapbot
 
     desc "server", "start watching urls"
 
-    #    Url file
+    # File with url list
     method_options :url_file => :string, :required => true
+    # Yaml configuration file
     method_options :conf_file => :string, :required => true
 
     def watch
@@ -49,4 +49,3 @@ end
 Scrapbot::Init.start
 
 # scrapbot watch --url_file="www.wp.pl"
-
